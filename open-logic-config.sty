@@ -885,7 +885,9 @@
 \DeclareDocumentCommand \cardeq { m m } {#1 \approx #2}
 
 % - `\tuple{x,y}`: pairs, tuples, sequences
-\DeclareDocumentCommand \tuple { m } {\langle #1 \rangle}
+\DeclareDocumentMacro \openTuple {\langle}
+\DeclareDocumentMacro \closeTuple {\rangle}
+\DeclareDocumentCommand \tuple { m } {\openTuple #1 \closeTuple}
 
 % - `\comp{f}{g}`: composition of f with g, defaults to $g \circ f$
 \DeclareDocumentCommand \comp { m m }{#2 \circ #1}
@@ -1048,7 +1050,7 @@
 \DeclareDocumentCommand \Obj { m }{\mathsfit{#1}}
 
 %  - `\Atom{P}{t_1, t_2)` - Atomic formula or term; default produces
-%  predicate symbol followed by argumnets surrounded by
+%  predicate symbol followed by arguments surrounded by
 %  parentheses. Some prefer no parentheses around the arguments.
 
 \DeclareDocumentCommand \Atom { m m }{ \mathord{#1}(#2) }
